@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+                   http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+    <changeSet id="202204191557" author="James Bell">
+        <createTable tableName="RECIPE_TABLE">
+            <column name="id" type="int" autoIncrement="true" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="external_id" type="uuid" >
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="recipe_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="story" type="varchar(65535)"/>
+            <column name="ingredients" type="varchar(65535)"/>
+            <column name="directions" type="varchar(65535)"/>
+            <column name="tips_and_tricks" type="varchar(5000)"/>
+        </createTable>
+    </changeSet>
+
+
+</databaseChangeLog>

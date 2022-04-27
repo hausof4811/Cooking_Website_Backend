@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+                   http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <property name="uuid_type" value="uuid" dbms="postgresql"/>
+    <property name="uuid_function" value="uuid_generate_v4()" dbms="postgresql"/>
+
+    <changeSet id="202204191641" author="James Bell">
+        <insert tableName="recipe_table">
+            <column name="external_id" valueComputed="${uuid_function}" />
+            <column name="recipe_name" value="bread" />
+            <column name="story" value="i like bread" />
+            <column name="ingredients" value="flour,water, yeast, joy" />
+            <column name="directions" value="fire" />
+            <column name="tips_and_tricks" value="eggs are nice" />
+        </insert>
+
+        <insert tableName="recipe_table">
+            <column name="external_id" valueComputed="${uuid_function}" />
+            <column name="recipe_name" value="chicken" />
+            <column name="story" value="feathers are not my friend" />
+            <column name="ingredients" value="chicken" />
+            <column name="directions" value="fire for 1 hour" />
+            <column name="tips_and_tricks" value="+ oil and flour make fried chicken" />
+        </insert>
+
+        <insert tableName="recipe_table">
+            <column name="external_id" valueComputed="${uuid_function}" />
+            <column name="recipe_name" value="toast" />
+            <column name="story" value="burned bread" />
+            <column name="ingredients" value="bread" />
+            <column name="directions" value="more fire" />
+            <column name="tips_and_tricks" value="add butter on completion of crispy bread" />
+        </insert>
+
+        <insert tableName="recipe_table">
+            <column name="external_id" valueComputed="${uuid_function}" />
+            <column name="recipe_name" value="coffee" />
+            <column name="story" value="fancy bean water go zoom zoom" />
+            <column name="ingredients" value="coffee beans" />
+            <column name="directions" value="grind beans to powder, add boiling water, drink" />
+            <column name="tips_and_tricks" value="black coffee is the superior coffee" />
+        </insert>
+
+        <insert tableName="recipe_table">
+            <column name="external_id" valueComputed="${uuid_function}" />
+            <column name="recipe_name" value="tea" />
+            <column name="story" value="weak leaf water stuff" />
+            <column name="ingredients" value="leaf + boiling water" />
+            <column name="directions" value="leaf + boiling water" />
+            <column name="tips_and_tricks" value="dont drink this unless you are unable to aquire coffee." />
+        </insert>
+
+    </changeSet>
+
+
+</databaseChangeLog>
